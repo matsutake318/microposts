@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
                                      less_than_or_equal_to: 150
                                      }
     has_secure_password
+    has_many :microposts
 end
