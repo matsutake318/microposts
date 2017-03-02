@@ -23,8 +23,10 @@
     <% if @users.any? %>
       <ul class="users follow">
         <% @users.each do |user| %>
-        　<%= link_to gravatar_for(user), user %>
-        　<%= link_to user.name, user %>
+        　<li>
+        　  <%= link_to gravatar_for(user), user %>
+        　  <%= link_to user.name, user %>
+        　</li> 
         <% end %>
       </ul>
     <% end %>
