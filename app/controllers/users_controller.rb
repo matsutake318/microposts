@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
@@ -39,13 +39,13 @@ class UsersController < ApplicationController
 
   def followings
     @title = "フォロー一覧"
-    @users = @user.following_users
+    @users = @user.following_users.paginate(page: params[:page], :per_page => 5)
     render 'show_follow'
   end
   
   def followers
     @title = "フォロワー一覧"
-    @users = @user.follower_users
+    @users = @user.follower_users.paginate(page: params[:page], :per_page => 5)
     render 'show_follow'
   end
 
